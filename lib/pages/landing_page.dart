@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'chat_message.dart';
+import 'package:chatapp/pages/card_message.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -10,17 +11,25 @@ class _LandingPageState extends State<LandingPage> {
   String _title = 'VAbot App';
   String _message = 'Hello World';
   TextEditingController _textField = new TextEditingController();
-  final List<ChatMessage> _messages = <ChatMessage>[];
+  final List<Widget> _messages = <Widget>[];
 
   void _handleSubmit(newValue) {
     print('You Entered: $newValue');
     _textField.clear();
-    ChatMessage message = new ChatMessage(newValue, 'user');
+    ChatMessage message = new ChatMessage(newValue, 'Ankit');
 
     setState(() {
       _messages.insert(0, message);
       _messages.insert(0, new ChatMessage(newValue, 'server'));
+
     });
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    _messages.insert(0, new CardMessage());
   }
 
   Widget _textBoxView() {
