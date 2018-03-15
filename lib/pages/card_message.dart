@@ -10,7 +10,7 @@ class CardMessage extends StatelessWidget {
         height: 220.0,
         decoration: new BoxDecoration(
           shape: BoxShape.rectangle,
-          image: new DecorationImage(image: new AssetImage('assets/img1.jpg'), fit: BoxFit.fill,),
+          image: new DecorationImage(image: new AssetImage('assets/img.jpg'), fit: BoxFit.fill,),
         ),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -6,17 +6,8 @@ void main() {
   runApp(new MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  _MyAppState createState() => new _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-
-  String _title = 'VAbot App';
-  LoginPage _login;
-  _MyAppState() {
-    _login = new LoginPage();
-  }
+class MyApp extends StatelessWidget {
+  final String _title = 'VAbot App';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +17,7 @@ class _MyAppState extends State<MyApp> {
         '/landingpage': (BuildContext context) => new LandingPage(),
         '/login': (BuildContext context) => new MyApp(),
       },
-      home: _login,
+      home: new LoginPage(),
     );
   }
 }

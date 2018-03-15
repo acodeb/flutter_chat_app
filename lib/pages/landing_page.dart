@@ -9,12 +9,10 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   String _title = 'VAbot App';
-  String _message = 'Hello World';
   TextEditingController _textField = new TextEditingController();
   final List<Widget> _messages = <Widget>[];
 
   void _handleSubmit(newValue) {
-    print('You Entered: $newValue');
     _textField.clear();
     ChatMessage message = new ChatMessage(newValue, 'Ankit');
 

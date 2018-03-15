@@ -78,13 +78,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.1"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -317,13 +310,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
-  speech_recognition:
-    dependency: "direct main"
-    description:
-      name: speech_recognition
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0+1"
   stack_trace:
     dependency: transitive
     description:
@@ -388,7 +374,7 @@ packages:
     source: hosted
     version: "0.9.7+7"
   web_socket_channel:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: web_socket_channel
       url: "https://pub.dartlang.org"

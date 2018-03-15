@@ -1,30 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
 
 class LoginPage extends StatefulWidget {
   @override
   LoginPageState createState() => new LoginPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
-  final GlobalKey<ScaffoldState> _scaffoldstate = new GlobalKey<ScaffoldState>();
+class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMixin {
+
+  Animation<double> _flutterLogoAnimation;
+  AnimationController _flutterLogoAnimationController;
+  
+  final _scaffoldstate = new GlobalKey<ScaffoldState>();
+  final _formKey = new GlobalKey<FormState>();
+
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _pass = new TextEditingController();
 
   String get username => _user.text;
   String get password => _pass.text; 
 
-  void onSubmitPressed() {
-    print('Login with: $username and password: $password');
-    //validateCredentials();
-    Navigator.of(context).pushNamedAndRemoveUntil('/landingpage', (Route<dynamic> route) => false);
+  @override
+  void initState() {
+    super.initState();
+    _flutterLogoAnimationController = new AnimationController(
+      vsync: this,
+      duration: new Duration(milliseconds: 500),
+    );
+
+    _flutterLogoAnimation = new CurvedAnimation(
+      parent: _flutterLogoAnimationController,
+      curve: Curves.easeOut,
+    );
+
+    _flutterLogoAnimation.addListener(() => this.setState(() {}));
+    _flutterLogoAnimationController.forward();
   }
 
-  void validateCredentials() {
-    _scaffoldstate.currentState.showSnackBar(new SnackBar(
-      content: new Text('username: $username, password: $password'),
-    ));
+  void onSubmitPressed() {
+    var form = _formKey.currentState;
+
+    if (form.validate()) {
+      Navigator.of(context).pushNamedAndRemoveUntil('/landingpage', (Route<dynamic> route) => false);
+    }
+  }
+
+  String userNameValidator(username) {
+    if(username == '') {
+      return 'Not a Valid Username';
+    }
+    return null;
+  }
+
+  String passwordValidator(password) {
+    if(password == '') {
+      return 'Not a Valid Password';
+    }
+    return null;
   }
 
   @override
@@ -36,22 +68,30 @@ class LoginPageState extends State<LoginPage> {
         centerTitle: false,
         title: new Text('VAbot App'),
       ),
-      body: new Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: new Form(
-          child: new Column(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            //mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Text('Login', style: new TextStyle(color: Colors.blue[300], fontSize: 50.0),),
-              new TextFormField(controller: _user, decoration: new InputDecoration(hintText: 'Enter username'),),
-              new TextFormField(controller: _pass, decoration: new InputDecoration(hintText: 'Enter password'), obscureText: true,),
-              new RaisedButton(
-                child: new Text('Submit'), 
-                onPressed: onSubmitPressed,
-              )
-            ],
-          ),
+      body: new Container(
+        padding: const EdgeInsets.all(20.0),
+        child: new Column(
+          children: <Widget>[
+            new Padding(padding: const EdgeInsets.only(top: 20.0),),
+            new FlutterLogo(size: _flutterLogoAnimation.value * 120),
+            new Padding(padding: const EdgeInsets.only(bottom: 20.0),),
+            new Form(
+              key: _formKey,
+              child: new Column(
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new TextFormField(controller: _user, decoration: new InputDecoration(labelText: 'Enter username'), validator: userNameValidator,),
+                  new TextFormField(controller: _pass, decoration: new InputDecoration(labelText: 'Enter password'), obscureText: true, validator: passwordValidator,),
+                  new Padding(padding: const EdgeInsets.only(top: 30.0),),
+                  new RaisedButton(
+                    child: new Text('Submit'),
+                    onPressed: onSubmitPressed,
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
