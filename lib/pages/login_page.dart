@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter/services.dart';
+import "dart:async";
+import 'local_auth.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -45,6 +49,23 @@ class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMix
     }
   }
 
+  void auth() {
+    Authenticate.authenticate().then((success) =>
+        success ? Navigator.of(context).pushNamedAndRemoveUntil('/landingpage', (Route<dynamic> route) => false) : null
+    ).catchError((onError) => print('ERROR -> $onError'));
+  }
+
+  Future<Null> authAsync() async {
+    try {
+      bool auth = await Authenticate.authenticate();
+      if (auth) {
+        Navigator.of(context).pushNamedAndRemoveUntil('/landingpage', (Route<dynamic> route) => false);
+      }
+    } catch (e) {
+      print('Error -> $e');
+    }
+  }
+
   String userNameValidator(username) {
     if(username == '') {
       return 'Not a Valid Username';
@@ -87,7 +108,12 @@ class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMix
                   new RaisedButton(
                     child: new Text('Submit'),
                     onPressed: onSubmitPressed,
-                  )
+                  ),
+                  new Padding(padding: const EdgeInsets.only(top: 10.0),),
+                  new RaisedButton(
+                    child: new Text('Touch ID'),
+                    onPressed: authAsync,
+                  ),
                 ],
               ),
             ),
