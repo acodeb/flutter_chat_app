@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:local_auth/local_auth.dart';
-import 'package:flutter/services.dart';
 import "dart:async";
 import 'local_auth.dart';
 
@@ -58,7 +56,7 @@ class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMix
   Future<Null> authAsync() async {
     try {
       bool auth = await Authenticate.authenticate();
-      if (auth) {
+      if(auth) {
         Navigator.of(context).pushNamedAndRemoveUntil('/landingpage', (Route<dynamic> route) => false);
       }
     } catch (e) {

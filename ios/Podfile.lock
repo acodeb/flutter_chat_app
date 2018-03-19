@@ -1,37 +1,28 @@
 PODS:
-  - barcode_scan (0.0.1):
-    - Flutter
-    - MTBBarcodeScanner
-  - bidirectional_scroll_view (0.0.1):
-    - Flutter
   - Flutter (1.0.0)
   - local_auth (0.0.1):
     - Flutter
-  - MTBBarcodeScanner (5.0.3)
+  - speech_recognition (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
-  - barcode_scan (from `Pods/.symlinks/plugins/barcode_scan-0.0.3/ios`)
-  - bidirectional_scroll_view (from `Pods/.symlinks/plugins/bidirectional_scroll_view-0.0.5/ios`)
   - Flutter (from `Pods/.symlinks/flutter/ios`)
   - local_auth (from `Pods/.symlinks/plugins/local_auth-0.2.0/ios`)
+  - speech_recognition (from `Pods/.symlinks/plugins/speech_recognition-0.2.0+1/ios`)
 
 EXTERNAL SOURCES:
-  barcode_scan:
-    :path: Pods/.symlinks/plugins/barcode_scan-0.0.3/ios
-  bidirectional_scroll_view:
-    :path: Pods/.symlinks/plugins/bidirectional_scroll_view-0.0.5/ios
   Flutter:
     :path: Pods/.symlinks/flutter/ios
   local_auth:
     :path: Pods/.symlinks/plugins/local_auth-0.2.0/ios
+  speech_recognition:
+    :path: Pods/.symlinks/plugins/speech_recognition-0.2.0+1/ios
 
 SPEC CHECKSUMS:
-  barcode_scan: 8288e70cb430072003bce2c794a1431e7adbcb4d
-  bidirectional_scroll_view: 9be92fc350cde9e140a0090a26236d2126af19cf
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
   local_auth: dca7d49d2228a53db258478ee98ee19402ff0c49
-  MTBBarcodeScanner: 3ce0f1b0085ef00c726ded663c490a63b29c9aa5
+  speech_recognition: 647da2fb33d7e6968bbdbd85240b5ee420d651f8
 
-PODFILE CHECKSUM: 0420ab312a523ae0eecfb1fc19ea51dd82cc17c7
+PODFILE CHECKSUM: b8c5aafe71294650ad34dd13b9f0883a28ca5902
 
 COCOAPODS: 1.4.0
