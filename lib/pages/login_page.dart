@@ -87,13 +87,13 @@ class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMix
         centerTitle: false,
         title: new Text('VAbot App'),
       ),
-      body: new Container(
+      body: new SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: new Column(
           children: <Widget>[
-            new Padding(padding: const EdgeInsets.only(top: 20.0),),
-            new FlutterLogo(size: _flutterLogoAnimation.value * 120),
-            new Padding(padding: const EdgeInsets.only(bottom: 20.0),),
+            new Padding(padding: const EdgeInsets.only(top: 10.0),),
+            new FlutterLogo(size: _flutterLogoAnimation.value * 140),
+            new Padding(padding: const EdgeInsets.only(bottom: 10.0),),
             new Form(
               key: _formKey,
               child: new Column(
@@ -102,12 +102,12 @@ class LoginPageState extends State<LoginPage>  with SingleTickerProviderStateMix
                 children: <Widget>[
                   new TextFormField(controller: _user, decoration: new InputDecoration(labelText: 'Enter username'), validator: userNameValidator,),
                   new TextFormField(controller: _pass, decoration: new InputDecoration(labelText: 'Enter password'), obscureText: true, validator: passwordValidator,),
-                  new Padding(padding: const EdgeInsets.only(top: 30.0),),
+                  new Padding(padding: const EdgeInsets.only(top: 20.0),),
                   new RaisedButton(
                     child: new Text('Submit'),
                     onPressed: onSubmitPressed,
                   ),
-                  new Padding(padding: const EdgeInsets.only(top: 10.0),),
+                  new Padding(padding: const EdgeInsets.only(top: 20.0),),
                   new RaisedButton(
                     child: new Text('Touch ID'),
                     onPressed: authAsync,
