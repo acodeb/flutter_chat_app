@@ -29,20 +29,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.2+14"
-  barcode_scan:
-    dependency: "direct main"
-    description:
-      name: barcode_scan
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.3"
-  bidirectional_scroll_view:
-    dependency: "direct main"
-    description:
-      name: bidirectional_scroll_view
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.5"
   boolean_selector:
     dependency: transitive
     description:
@@ -338,6 +324,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
+  speech_recognition:
+    dependency: "direct main"
+    description:
+      name: speech_recognition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0+1"
   stack_trace:
     dependency: transitive
     description:
@@ -402,7 +395,7 @@ packages:
     source: hosted
     version: "0.9.7+7"
   web_socket_channel:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: web_socket_channel
       url: "https://pub.dartlang.org"
